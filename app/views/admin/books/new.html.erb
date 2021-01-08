@@ -1,0 +1,45 @@
+<div class= " container">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Create Books</h2>
+   </div>
+</div>
+
+
+<div class="col-lg-5 col-md-7 col-sm-11 mx-auto" >
+
+<%= form_with model: [:admin, @book] do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: 'form-label' %><br />
+    <%= f.text_field :title, autofocus: true, autocomplete: "email",  class: 'form-control', :required => true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :author, class: 'form-label' %><br />
+    <%= f.text_field :author, autofocus: true, autocomplete: "email",  class: 'form-control', :required => true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :amount, class: 'form-label' %><br />
+    <%= f.number_field :amount, autofocus: true, autocomplete: "email",  class: 'form-control', :required => true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, class: 'form-label' %><br />
+    <%= f.text_field :description, autofocus: true, autocomplete: "email",  class: 'form-control', :required => true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :picture, class: 'form-label' %><br />
+    <%= f.file_field :picture, autofocus: true, :required => @book.new_record? %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create", class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+
+
+
+
+

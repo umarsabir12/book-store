@@ -1,0 +1,26 @@
+
+<nav class='navbar navbar-expand-lg navbar-light bg-light'>
+  <h3>
+    <% if admin_signed_in? %>
+    <%= link_to 'Book Store', admin_books_path, class: 'navbar-brand' %>
+    <% else if %>
+    <%= link_to 'Book Store', user_books_path, class: 'navbar-brand' %>
+    <% end %>
+    <% end %>
+  </h3>
+  </button>
+    <ul class='navbar-nav mr-auto'>
+      <li class='nav-item active'></li>
+      <li class='nav-item'></li>
+      <li class='nav-item'></li>
+    </ul>
+    <span class='navbar-text'>
+      <% if admin_signed_in? %>
+        <%= link_to 'Signout', destroy_admin_session_path, method: :delete %>
+        <% else if user_signed_in? %>
+        <%= link_to 'Signout', destroy_user_session_path, method: :delete %>
+        <% end %>
+      <% end %>
+    </span>
+  </div>
+</nav>
