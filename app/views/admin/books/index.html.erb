@@ -1,19 +1,32 @@
 <div class = "container">
   <h3 >Welcome <%= current_admin.first_name %> to admin dashboard </h3>
   <br>
-
   <div class="d-flex justify-content-between">
     <h3>Books</h3>
-    <%= link_to 'Create Book', new_admin_book_path, class: 'btn btn-primary'  %>
+    <div>
+      <%= link_to 'Create Book', new_admin_book_path, class: 'btn btn-primary'  %>
+      <%= link_to 'Orders',  admin_orders_path, class: 'btn btn-primary'  %>
+      <%= link_to 'All Users',  admin_users_path, class: 'btn btn-primary'  %>
+    </div>
   </div>
-
   <% @books.each do |book| %>
     <div class= "mt-4 card">
       <div class= "card-body">
-        <h5 class="card-title"><%= book.title %></h5>
-        <%= link_to 'Show', admin_book_path(book), class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_admin_book_path(book), class: 'btn btn-info' %>
-        <%= link_to 'Delete', admin_book_path(book), method: :delete, data: {confirm: "Are you sure "}, class: 'btn btn-danger' %>
+        <div class = "d-flex justify-content-between">
+          <div>
+            <h5 class="card-title"><%= book.title %></h5>
+            <%= link_to 'Show', admin_book_path(book), class: 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_admin_book_path(book), class: 'btn btn-info' %>
+            <%= link_to 'Delete', admin_book_path(book), method: :delete, data: {confirm: "Are you sure "}, class: 'btn btn-danger' %>
+          </div>
+          <div>
+            <% if book.published? %>
+            <%= link_to "Published",admin_book_path(book), class: 'btn btn-light' %>
+            <% else %>
+            <%= link_to "Not Published", admin_book_path(book), class: 'btn btn-light' %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>

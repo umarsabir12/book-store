@@ -4,4 +4,7 @@ class Order <  ApplicationRecord
 
   enum status: [:pending, :approved, :rejected]
 
+  # def self.approved
+  #   where(status: 'approved')
+  # end
 end

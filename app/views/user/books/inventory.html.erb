@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>My Collection</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Discription</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.book.title %></td>
+        <td><%= order.book.author %></td>
+        <td><%= order.book.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="container">
+  <div class= "mt-5">
+  <h4>Others Pending orders</h4>
+  <table class="table">
+  <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>amount</th>
+        <th>status</th>
+      </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <% @orders_pending.each do |pending_order| %>
+    <td><%= pending_order.book.title %></td>
+    <td><%= pending_order.book.author %></td>
+    <td><%= pending_order.book.amount %></td>
+    <td><%= pending_order.status %></td>
+  </tr>
+  <% end %>
+  </tbody>
+ </table>
+ </div>
+</div>

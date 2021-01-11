@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+      <h2>List of all orders</h2>
+    <div class="d-flex align-items-center">
+      <%= link_to 'Pending Orders',pending_orders_admin_orders_path , class: 'btn btn-primary'  %>
+    </div>
+  </div>
+  <table class="table">
+   <thead>
+    <tr>
+      <th>Buyer</th>
+      <th>Book</th>
+      <th>Price</th>
+      <th>Status</th>
+    </tr>
+   </thead>
+   <tbody>
+   <% @orders.each do |order| %>
+    <tr>
+      <td> <%= order.user.first_name %></td>
+      <td><%= order.book.title %></td>
+      <td><%= order.book.amount %></td>
+      <td><%= order.status%></td>
+    </tr>
+   <% end %>
+  </tbody>
+  </table>
+</div>

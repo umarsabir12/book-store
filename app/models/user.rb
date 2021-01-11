@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :orders
-  has_many :books, through: :orders
-
+  has_many :books, -> { where(orders: { status: :approved }) }, through: :orders
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
