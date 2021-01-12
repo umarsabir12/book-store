@@ -12,15 +12,15 @@
     </tr>
    </thead>
    <tbody>
-    <% @orders.each do |order| %>
-    <tr>
-      <td><%= order.user.first_name %></td>
-      <td><%= order.book.title %></td>
-      <td><%= order.book.amount %></td>
-      <td><%= link_to "Accept",  accepted_admin_order_path(order), method: :patch, class: "btn btn-info " %></td>
-      <td><%= link_to "Reject",  rejected_admin_order_path(order),method: :patch, class: "btn btn-danger "%></td>
-    </tr>
-    <% end %>
+      <% @pending_orders.each do |pending_order| %>
+      <tr>
+        <td><%= pending_order.user.first_name %></td>
+        <td><%= pending_order.book.title %></td>
+        <td><%= pending_order.book.amount %></td>
+        <td><%= link_to "Accept",  accepted_admin_order_path(pending_order), method: :patch, class: "btn btn-info " %></td>
+        <td><%= link_to "Reject",  rejected_admin_order_path(pending_order),method: :patch, class: "btn btn-danger "%></td>
+      </tr>
+      <% end %>
   </tbody>
   </table>
 </div>

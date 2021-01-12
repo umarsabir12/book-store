@@ -5,7 +5,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def pending_orders
-    @orders = Order.pending
+    @pending_orders = Order.pending
   end
 
   def accepted

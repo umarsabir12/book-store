@@ -21,7 +21,7 @@
 </div>
 <div class="container">
   <div class= "mt-5">
-  <h4>Others Pending orders</h4>
+  <h4>Other Pending orders</h4>
   <table class="table">
   <thead>
       <tr>
@@ -33,7 +33,7 @@
   </thead>
   <tbody>
   <tr>
-    <% @orders_pending.each do |pending_order| %>
+  <% @pending_orders.each do |pending_order| %>
     <td><%= pending_order.book.title %></td>
     <td><%= pending_order.book.author %></td>
     <td><%= pending_order.book.amount %></td>
