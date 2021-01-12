@@ -3,11 +3,6 @@
   <br>
   <div class="d-flex justify-content-between">
     <h3>Books</h3>
-    <div>
-      <%= link_to 'Create Book', new_admin_book_path, class: 'btn btn-primary'  %>
-      <%= link_to 'Orders',  admin_orders_path, class: 'btn btn-primary'  %>
-      <%= link_to 'All Users',  admin_users_path, class: 'btn btn-primary'  %>
-    </div>
   </div>
   <% @books.each do |book| %>
     <div class= "mt-4 card">

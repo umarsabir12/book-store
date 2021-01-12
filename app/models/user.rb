@@ -7,6 +7,14 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :books, -> { where(orders: { status: :approved }) }, through: :orders
   def name
-    "#{self.first_name} #{self.last_name  }"
+    "#{first_name} #{last_name}"
+  end
+
+  def book_ordered?(book_id)
+    order_book_ids.include?(book_id)
+  end
+
+  def order_book_ids
+    orders.pluck(:book_id)
   end
 end

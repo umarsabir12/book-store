@@ -14,9 +14,13 @@
     </ul>
     <span class='navbar-text'>
       <% if admin_signed_in? %>
-        <%= link_to 'Signout', destroy_admin_session_path, method: :delete %>
+        <%= link_to 'Create Book', new_admin_book_path, class: 'btn btn-outline-secondary'  %>
+        <%= link_to 'Orders',  admin_orders_path, class: 'btn btn-outline-secondary'  %>
+        <%= link_to 'All Users',  admin_users_path, class: 'btn btn-outline-secondary'  %>
+        <%= link_to 'Signout', destroy_admin_session_path, method: :delete, class: 'btn btn-primary' %>
       <% elsif user_signed_in? %>
-        <%= link_to 'Signout', destroy_user_session_path, method: :delete %>
+        <%= link_to 'My collection', inventory_user_books_path, class: "btn btn-outline-secondary" %>
+        <%= link_to 'Signout', destroy_user_session_path, method: :delete,  class: "btn btn-primary" %>
       <% end %>
     </span>
   </div>
