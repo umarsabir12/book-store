@@ -1,5 +1,5 @@
 
-class Admin::BooksController < ApplicationController
+class Admin::BooksController < AdminController
   def index
     @books = Book.all
   end
@@ -29,7 +29,7 @@ class Admin::BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-  @book.update(permitted_params)
+    @book.update(permitted_params)
     flash[:notice] = "Book Updated successfully."
     redirect_to admin_book_path(@book)
   end

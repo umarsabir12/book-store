@@ -9,14 +9,25 @@ Rails.application.routes.draw do
         patch :publish
         patch :unpublish
       end
-      resources :orders, only: [:create]
+      # resources :orders, only: [ :index, :create]
     end
-    resources :orders, only: [:index, :update]
+    resources :orders, only: [:index, :update] do
+      member do
+        patch :accepted
+        patch :rejected
+      end
+      collection do
+        get :pending_orders
+      end
+    end
     resources :users, only: [:index]
   end
 
   namespace :user do
-    resources :books, only: [:index] do
+    resources :books, only: [:index,:show] do
+      collection do
+        get :inventory
+      end
       resources :orders, only: [:create]
     end
   end

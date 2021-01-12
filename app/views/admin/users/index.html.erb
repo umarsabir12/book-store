@@ -1,0 +1,21 @@
+<div class="container">
+<h1>All Users</h1>
+  <table class="table">
+   <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Owned books</th>
+    </tr>
+   </thead>
+   <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.orders.approved.count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>

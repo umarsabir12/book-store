@@ -8,15 +8,16 @@ h1{
 
   text-align: center;
 }
-button{
-  // text-align: center;
-  // display: list-item;
-  // margin-left: 230px;
-  // margin-top: 50px;
-}
 .aa{
   text-align: center;
   display: list-item;
   margin-top: 50px;
 
+}
+
+.navbar-light .navbar-brand {
+  color: white;
+}
+.navbar-light .navbar-text a {
+  color:white;
 }

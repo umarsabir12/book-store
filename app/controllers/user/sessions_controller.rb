@@ -5,7 +5,7 @@ class User::SessionsController < Devise::SessionsController
  private
 
   def after_sign_in_path_for(user)
-    user_books_path(current_user)
+    user_books_path
   end
   # GET /resource/sign_in
   # def new
